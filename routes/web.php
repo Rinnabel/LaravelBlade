@@ -11,10 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('master');
-});
+Route::get('/', 'TableController@tabel1');
 
+Route::get('/data-tables', 'TableController@tabel2');
 /* Route::get('/', 'HomeController@home');
 
 Route::get('/register', 'AuthController@register');
@@ -23,3 +22,5 @@ Route::post('/welcome', 'AuthController@store'); */
 
 /*  
 */
+
+Route::get('/post/create', 'PostController@create');
