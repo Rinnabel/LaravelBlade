@@ -6,15 +6,15 @@
     <!-- general form elements -->
     <div class="card card-primary">
       <div class="card-header">
-        <h3 class="card-title">Quick Example</h3>
+        <h3 class="card-title">Buat Pertanyaan Baru</h3>
       </div>
       <!-- /.card-header -->
       <!-- form start -->
       <form role="form">
         <div class="card-body">
           <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+            <label for="exampleInputEmail1">Judul Pertanyaan</label>
+            <input type="text" class="form-control" id="judul" placeholder="Tulis Judul">
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Password</label>
