@@ -26,3 +26,5 @@ Route::post('/welcome', 'AuthController@store'); */
 Route::get('/post/create', 'PostController@create');
 
 Route::get('/pertanyaan/create', 'PertanyaanController@create');
+
+Route::post('/pertanyaan', 'PertanyaanController@store');

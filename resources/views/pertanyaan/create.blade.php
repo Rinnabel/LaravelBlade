@@ -2,48 +2,37 @@
 
 @section('content')
 
-<div class="col-md-6">
-    <!-- general form elements -->
-    <div class="card card-primary">
-      <div class="card-header">
-        <h3 class="card-title">Buat Pertanyaan Baru</h3>
-      </div>
-      <!-- /.card-header -->
-      <!-- form start -->
-      <form role="form">
-        <div class="card-body">
-          <div class="form-group">
-            <label for="exampleInputEmail1">Judul Pertanyaan</label>
-            <input type="text" class="form-control" id="judul" placeholder="Tulis Judul">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputFile">File input</label>
-            <div class="input-group">
-              <div class="custom-file">
-                <input type="file" class="custom-file-input" id="exampleInputFile">
-                <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-              </div>
-              <div class="input-group-append">
-                <span class="input-group-text" id="">Upload</span>
-              </div>
+    <div class="col-md-6" style="margin-left: 30px; margin-top: 30px">
+        <!-- general form elements -->
+        <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">Buat Pertanyaan Baru</h3>
             </div>
-          </div>
-          <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Check me out</label>
-          </div>
-        </div>
-        <!-- /.card-body -->
+            <!-- /.card-header -->
+            <!-- form start -->
+            <form role="form" action="/pertanyaan" method="POST">
+                @csrf
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="judul">Judul Pertanyaan</label>
+                    <input type="text" class="form-control" id="judul" name="judul" value="{{ old('judul', '') }}" placeholder="Tulis Judul">
+                        @error('judul')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="isi">Pertanyaan</label>
+                        <input type="text" class="form-control" id="isi" name="isi" value="{{ old('isi', '') }}" placeholder="Tulis Pertanyaanmu">
+                        @error('isi')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
 
-        <div class="card-footer">
-          <button type="submit" class="btn btn-primary">Submit</button>
+                    <div class="card-footer">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
         </div>
-      </form>
-    </div>
-    <!-- /.card -->
+        <!-- /.card -->
 
 @endsection
