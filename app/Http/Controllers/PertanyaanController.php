@@ -23,7 +23,12 @@ class PertanyaanController extends Controller
             "isi" => $request["isi"]
         ]);
 
-        return redirect('pertanyaan/create');
+        return redirect('pertanyaan');
 
+    }
+
+    public function index() {
+        $pertanyaan = DB::table('pertanyaan')->get();
+        return view('pertanyaan.index', compact('pertanyaan'));
     }
 }
