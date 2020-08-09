@@ -9,6 +9,12 @@
       </div>
       <!-- /.card-header -->
       <div class="card-body">
+        @if(session('success'))
+          <div class="alert alert-success">
+            {{ session('success') }}
+          </div>
+        @endif
+        <a class="btn btn-info mb-3" href="/pertanyaan/create">Add new question</a>
         <table class="table table-bordered">
           <thead>                  
             <tr>
@@ -19,14 +25,20 @@
             </tr>
           </thead>
           <tbody>
-            @foreach($pertanyaan as $key => $pertanyaan)
+            @forelse($pertanyaan as $key => $pertanyaan)
               <tr>
                 <td> {{ $key + 1 }} </td>
                 <td> {{ $pertanyaan->judul }} </td>
                 <td> {{ $pertanyaan->isi }} </td>
-                <td> Actions </td>
+                <td>
+                  <a class="btn btn-info btn-sm" href="/pertanyaan/{{$pertanyaan->id}}">Show</a>
+                </td>
               </tr>
-            @endforeach
+            @empty
+              <tr>
+                <td colspan="4" align="center">Tak ada pertanyaan nih</td>
+              </tr>
+            @endforelse
           </tbody>
         </table>
       </div>

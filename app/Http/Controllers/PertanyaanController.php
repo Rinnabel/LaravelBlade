@@ -23,12 +23,18 @@ class PertanyaanController extends Controller
             "isi" => $request["isi"]
         ]);
 
-        return redirect('pertanyaan');
+        return redirect('pertanyaan')->with('success', 'Pertanyaan Berhasil Diajukan!');
 
     }
 
     public function index() {
         $pertanyaan = DB::table('pertanyaan')->get();
         return view('pertanyaan.index', compact('pertanyaan'));
+    }
+
+    public function show($id) {
+        $pertanyaan = DB::table('pertanyaan')->where('id', $id)->first();
+        //dd($pertanyaan);
+        return view('pertanyaan.show', compact('pertanyaan'));
     }
 }

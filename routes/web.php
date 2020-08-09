@@ -30,3 +30,5 @@ Route::get('/pertanyaan/create', 'PertanyaanController@create');
 Route::post('/pertanyaan', 'PertanyaanController@store');
 
 Route::get('/pertanyaan', 'PertanyaanController@index');
+
+Route::get('/pertanyaan/{pertanyaan_id}', 'PertanyaanController@show');
