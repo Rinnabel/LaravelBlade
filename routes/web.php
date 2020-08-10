@@ -32,3 +32,9 @@ Route::post('/pertanyaan', 'PertanyaanController@store');
 Route::get('/pertanyaan', 'PertanyaanController@index');
 
 Route::get('/pertanyaan/{pertanyaan_id}', 'PertanyaanController@show');
+
+Route::get('/pertanyaan/{pertanyaan_id}/edit', 'PertanyaanController@edit');
+
+Route::put('/pertanyaan/{pertanyaan_id}', 'PertanyaanController@update');
+
+Route::delete('/pertanyaan/{pertanyaan_id}', 'PertanyaanController@destroy');

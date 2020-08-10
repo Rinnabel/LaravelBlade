@@ -37,4 +37,16 @@ class PertanyaanController extends Controller
         //dd($pertanyaan);
         return view('pertanyaan.show', compact('pertanyaan'));
     }
+
+    public function edit() {
+
+    }
+
+    public function update() {
+
+    }
+
+    public function destroy() {
+
+    }
 }
