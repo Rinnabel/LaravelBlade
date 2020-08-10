@@ -6,5 +6,5 @@
         <p> {{ $pertanyaan->isi }} </p>
     </div>
 
-    <a class="btn btn-info btn-sm mt-3 ml-5" href="/pertanyaan/{{$pertanyaan->id}}/edit">edit</a>
+    <a class="btn btn-info mt-3 ml-5" href="/pertanyaan/{{$pertanyaan->id}}/edit">edit</a>
 @endsection

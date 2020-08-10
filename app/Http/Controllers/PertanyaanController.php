@@ -38,12 +38,25 @@ class PertanyaanController extends Controller
         return view('pertanyaan.show', compact('pertanyaan'));
     }
 
-    public function edit() {
+    public function edit($id) {
+        $pertanyaan = DB::table('pertanyaan')->where('id', $id)->first();
 
+        return view('pertanyaan.edit', compact('pertanyaan'));
     }
 
-    public function update() {
+    public function update($id, Request $request) {
+        $request->validate([
+            'judul' => 'required',
+            'isi' => 'required'
+         ]);
 
+        $query = DB::table('pertanyaan')
+                    ->where('id', $id)
+                    ->update([
+                        'judul' => $request['judul'],
+                        'isi' => $request['isi']
+                    ]);
+        return redirect('pertanyaan')->with('success', 'Pertanyaan Berhasil Diedit!');
     }
 
     public function destroy() {
